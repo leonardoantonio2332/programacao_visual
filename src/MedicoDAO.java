@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class MedicoDAO {
 	private String DRIVER = "org.postgresql.Driver";
-	private String urlBanco = "jdbc:postgres://jiknpecj:WrUJLat69yzU9Kuq-lYhWL1oJ_G_cGxT@motty.db.elephantsql.com:5432/jiknpecj "; //indica o caminho do banco de dados
+	private String urlBanco = "jdbc:postgresql://motty.db.elephantsql.com:5432/jiknpecj"; //indica o caminho do banco de dados
 	private String usuarioBanco = "jiknpecj"; // aqui vai o nome usuario que vc quer acessar
 	private String senhaBanco = "WrUJLat69yzU9Kuq-lYhWL1oJ_G_cGxT"; // aqui a senha do seu banco
 	private Connection getConnection() {
