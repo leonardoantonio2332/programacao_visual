@@ -8,53 +8,53 @@ public class Principal {
 		int opcao=0;
 		while (opcao!=6)
 		{
-			System.out.println("1- Cadastrar um médico");
-			System.out.println("2- Consultar um médico");
-			System.out.println("3- Retornar os dados de todos os médicos cadastrados");
-			System.out.println("4- Excluir um médico");
-			System.out.println("5- Alterar os dados de um médico");
+			System.out.println("1- Cadastrar um medico");
+			System.out.println("2- Consultar um medico");
+			System.out.println("3- Retornar os dados de todos os medicos cadastrados");
+			System.out.println("4- Excluir um medico");
+			System.out.println("5- Alterar os dados de um medico");
 			System.out.println("6- Sair");
-			System.out.println("Digite o número da opção escolhida");
+			System.out.println("Digite o numero da opcao escolhida");
 			try
 			{
 				opcao=Integer.parseInt(teclado.nextLine());
 				if (opcao==1)
 				{
 					Medico medico=new Medico();
-					System.out.println("Informe o nome do médico:");
+					System.out.println("Informe o nome do medico:");
 					medico.setNome(teclado.nextLine());
-					System.out.println("Informe o CRM do médico:");
+					System.out.println("Informe o CRM do medico:");
 					medico.setCrm(teclado.nextLine());
-					System.out.println("Informe a especialidade do médico:");
+					System.out.println("Informe a especialidade do medico:");
 					medico.setEspecialidade(teclado.nextLine());
 					MedicoDAO medicoDAO = new MedicoDAO();
 					Medico cadastrado = medicoDAO.selecionarMedico(medico.getCrm());
 					if (cadastrado != null)
-						System.out.println("Já existe um médico cadastrado com este CRM.");
+						System.out.println("Ja existe um medico cadastrado com este CRM.");
 					else
 					{
 						int retorno=medicoDAO.cadastrarMedico(medico);
 						if (retorno == 1)
-							System.out.println("Médico cadastrado com sucesso!");
+							System.out.println("Medico cadastrado com sucesso!");
 						else
-							System.out.println("Ocorreu um erro ao tentar cadastrar um Médico!");
+							System.out.println("Ocorreu um erro ao tentar cadastrar um Medico!");
 					}
 					System.out.println("Digite uma tecla qualquer para continuar:");
 					teclado.nextLine();
 				}else if (opcao==2)
 				{
-					System.out.println("Informe o CRM do médico que deseja pesquisar os dados:");
+					System.out.println("Informe o CRM do medico que deseja pesquisar os dados:");
 					String crm = teclado.nextLine();
 					MedicoDAO medicoDAO = new MedicoDAO();
 					Medico medico = medicoDAO.selecionarMedico(crm);
 					if (medico != null)
 					{
-						System.out.println("Informações do médico:");
+						System.out.println("Informacoes do medico:");
 						System.out.println("Nome: " + medico.getNome());
 						System.out.println("CRM: " + medico.getCrm());
 						System.out.println("Especialidade: " + medico.getEspecialidade());
 					}else
-						System.out.println("Médico não encontrado com esse CRM!");
+						System.out.println("Medico nao encontrado com esse CRM!");
 					System.out.println("Digite uma tecla qualquer para continuar");
 					teclado.nextLine();
 				}else if (opcao==3)
@@ -71,7 +71,7 @@ public class Principal {
 							System.out.println("Especialidade: " + c.getEspecialidade());
 						}
 					}else
-						System.out.println("Nenhum médico cadastrado no momento!");
+						System.out.println("Nenhum medico cadastrado no momento!");
 					System.out.println("Digite uma tecla qualquer para continuar");
 					teclado.nextLine();
 				}else if (opcao==4)
@@ -102,12 +102,12 @@ public class Principal {
 						else
 							System.out.println("Nenhum Medico encontrado com este CRM!");
 				}else if (opcao!=6)
-					System.out.println("Opção inválida");
+					System.out.println("Opcao invalida");
 				else
 					teclado.close();
 			}catch (Exception erro)
 			{
-				System.out.println("Opção inválida");
+				System.out.println("Opcao invalida");
 				System.out.println("Digite uma tecla qualquer para continuar");
 				teclado.nextLine();
 			}
